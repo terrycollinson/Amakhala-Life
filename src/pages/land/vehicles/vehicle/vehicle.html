@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar color="dark" transparant class="white-text">
+     <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title >{{name}}</ion-title>
+    <ion-buttons  right>
+        <button color="light" ion-button icon-only>
+            <ion-icon name="more"></ion-icon>
+        </button>
+    </ion-buttons> 
+  </ion-navbar>
+  
+</ion-header>
+
+
+<ion-content no-padding>
+
+  <ion-tabs>
+    <ion-tab tabIcon="contact" [root]="tab1"></ion-tab>
+    <ion-tab tabIcon="compass" [root]="tab2"></ion-tab>
+    <ion-tab tabIcon="analytics" [root]="tab3"></ion-tab>
+    <ion-tab tabIcon="settings" [root]="tab4"></ion-tab>
+  </ion-tabs>
+  
+     <ion-fab left bottom (click)="createEvent(this.user)">
+        <button ion-fab color="red"><ion-icon name="md-notifications" ></ion-icon></button>
+    </ion-fab>
+  
+     <ion-fab right bottom (click)="createSighting(this.user)">
+        <button ion-fab color="green"><ion-icon name="paw" ></ion-icon></button>
+    </ion-fab>
+    
+</ion-content>

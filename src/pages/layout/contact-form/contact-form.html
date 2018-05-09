@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Contact Us</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="home">
+    <ion-list>
+        <ion-item>
+            <ion-label floating>Recipient (To)</ion-label>
+            <ion-input type="text" [(ngModel)]="recipient" value="terry_collinson@debono.net"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Subject</ion-label>
+            <ion-input type="text" [(ngModel)]="subject" value="role"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Message</ion-label>
+            <ion-textarea [(ngModel)]="message" value="JLmB19kwonZpyhbk67RmSFJIu4c2"></ion-textarea>
+        </ion-item>
+    </ion-list>
+    <div padding>
+        <button block (click)="send(recipient, subject, message)">Send</button>
+        <button block (click)="test(recipient, subject, message)">Test</button>
+    </div>
+</ion-content>

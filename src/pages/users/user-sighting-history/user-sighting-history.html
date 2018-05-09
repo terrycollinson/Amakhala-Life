@@ -1,0 +1,21 @@
+
+<ion-content padding>
+ 
+ 
+   <ion-list [virtualScroll]="sightingsArray" >
+
+     <ion-item-sliding #item *virtualItem="let sighting" class="spinner-container" tappable  (click)="viewSightingDetail(wildlife.label_en, wildlife.binomial, wildlife.dbimage)">
+      <ion-item>
+      <ion-thumbnail item-left>
+      <ion-img [src]="sighting.dbimage"></ion-img>
+      </ion-thumbnail>
+       <h2>{{sighting.label_en}}</h2>
+       <h4><i>{{sighting.binomial}}</i></h4>
+       <h3>{{sighting.timestamp | timeago }}</h3>
+      </ion-item>          
+     </ion-item-sliding>
+
+   </ion-list>
+
+ 
+</ion-content>

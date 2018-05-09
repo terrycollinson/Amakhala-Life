@@ -1,0 +1,55 @@
+
+<ion-header>
+
+  <ion-navbar color="dark" class="white-text">
+     <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title >Wildlife Drill-Down</ion-title>
+    <ion-buttons  right>
+        <button color="light" ion-button icon-only>
+            <ion-icon name="more"></ion-icon>
+        </button>
+    </ion-buttons> 
+  </ion-navbar>
+
+  <!--*********** Toolbar with segment ***********-->
+  <ion-toolbar no-border-top color="indigo">
+       <ion-segment  [(ngModel)]="viewType" color="light">
+      <ion-segment-button value="list">
+        List view
+      </ion-segment-button>
+      <ion-segment-button value="grid">
+        Taxonomy view
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <!--*********** List view ***********-->
+  <div *ngIf="viewType==='list'">
+    <ion-card tappable  class="card-list fadein-down" *ngFor="let category of wsp.wildlifeListArray" (click)="openList(category.$key)">
+        <div class="card-list-bg" [ngStyle]="{'background-image': 'url(' + category.dbimage+ ')'}">
+          <h2 class="card-list-title"> {{category.label_en}}</h2>              
+        </div>
+    </ion-card>
+  </div>
+
+  <!--*********** Grid View  ***********-->
+  <div *ngIf="viewType==='grid'">
+      <ion-grid >
+          <ion-row wrap>
+            <ion-col tappable  col-6 *ngFor="let category2 of taxonomyList" (click)="wsp.fetchWildlife('classis', category2.taxonomy_level)" color="gray">
+              <ion-card class="card-grid drop-in" >
+                <div class="card-grid-bg" [ngStyle]="{'background-image': 'url(' + category2.dbimage+ ')'}">
+                    <h2 class="card-grid-title"> {{category2.label_en}}</h2>                                
+                </div>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+      </ion-grid>
+  </div>
+</ion-content>

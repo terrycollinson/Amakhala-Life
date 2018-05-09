@@ -1,0 +1,28 @@
+
+<ion-header no-border >
+  <ion-navbar color="dark"> 
+   <button ion-button menuToggle start>
+      <ion-icon name="menu"  color="light"></ion-icon>
+  </button> 
+  <ion-title>Amakhala Life</ion-title>
+  <ion-buttons end> 
+    <button ion-button  (click)="connectionOptions()"> <!-- *ngIf="iconColor==='green'" -->
+      <ion-icon name="wifi"   color="{{iconColor}}"></ion-icon> 
+    </button> 
+    <button ion-button  (click)="markerOptions()">
+      <ion-icon name="switch" color="light"></ion-icon>
+    </button>
+  </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content fullscreen> 
+     <div #map id="map"></div>
+  
+    <div #pleaseConnect id="please-connect">
+        <p>Please connect to the Internet...</p>
+    </div>
+ 
+   
+
+</ion-content>

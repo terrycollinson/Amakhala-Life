@@ -1,0 +1,45 @@
+<ion-content no-padding >
+   
+    <div class="profile-box">
+        <div text-center>
+            <img [src]="profilePicture" class="edit-avatar pop-in" alt="">
+            <p class="name-text">{{name}}</p>
+        </div>
+    </div>
+
+    <div no-padding>
+        <ion-list no-lines>
+            <ion-item>
+                <ion-icon name="ios-mail" item-left></ion-icon>
+                <h2>{{email}}</h2>
+                <p>E-mail</p>
+            </ion-item>
+
+            <ion-item>
+              <ion-icon name="md-radio" item-left></ion-icon>
+              <h2>{{name}}</h2>
+              <p>Radio</p>
+            </ion-item>
+
+            <ion-item>
+              <ion-icon name="ios-call" item-left></ion-icon>
+              <h2>{{phone}}</h2>
+              <p>Mobile phone</p>
+            </ion-item>
+         <!--
+            <ion-item>
+              <ion-icon name="md-finger-print"  item-left></ion-icon>
+              <h2>{{uid}}</h2>
+              <p>Firebase uid</p>
+            </ion-item>
+         -->
+        </ion-list>
+       
+       <!--
+        <button ion-button block color="blue2" (click)="logout()">
+          Logout
+        </button>
+        -->
+    </div>
+
+</ion-content>

@@ -1,0 +1,35 @@
+page-sighting-new {
+
+ion-chip{
+        padding: 0px 30px 0px 0px;
+        height: 36px !important;
+        margin-left: 15px  !important;
+    }
+    textarea{
+        max-width: 100%;
+        width: 100%;
+        height: 20vh;
+    }
+    .error-box {
+        color: #999;
+    }
+    .error-border {
+        color: red;
+    }
+
+ ul {
+
+    padding: 0px;
+    text-align: center;
+
+    &.rating li {
+      padding: 5px 1px !important;
+      background: none;
+      color: #222;
+      ion-icon {
+        font-size: 30px;
+         }
+    }
+  }
+    
+}

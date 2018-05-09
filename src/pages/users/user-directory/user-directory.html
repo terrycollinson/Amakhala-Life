@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar  color="dark" >
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Reserve Directory</ion-title>
+    <ion-buttons  right>
+        <button color="light" ion-button icon-only (click)="viewEmployers()">
+            <ion-icon name="funnel"></ion-icon>
+        </button>
+    </ion-buttons>
+  </ion-navbar>
+  <ion-toolbar color="dark">
+      <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-list>
+    <ion-item *ngFor="let contact of contactList">
+      <ion-avatar item-start>
+        <img src="../../assets/icon/{{contact.img}}">
+      </ion-avatar>  
+      <h2> <strong>{{ contact.name }}</strong> </h2>
+      <h3> {{ contact.organisation }}</h3>
+      <h3> <i>{{ contact.position }}</i> </h3>
+      <h3> <strong>+ 27 (0) {{ contact.phone }}</strong> </h3>
+      <ion-icon name="call" item-end color="green" style="zoom:1.5;"  (tap)="phone()"></ion-icon>
+     
+    </ion-item>   
+  </ion-list>
+   
+
+</ion-content>

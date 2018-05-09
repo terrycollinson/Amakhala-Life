@@ -1,0 +1,75 @@
+<ion-header>
+
+  <ion-navbar no-border-bottom color="dark">
+    <button ion-button menuToggle color="light">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Wildlife Search</ion-title>
+    <ion-buttons end> 
+     <button ion-button (click)="selectClassis()" color="light">
+      <ion-icon name="more"></ion-icon>
+    </button>
+    </ion-buttons>
+  </ion-navbar>
+
+  <ion-toolbar no-border-top color="dark">
+    <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" debounce=700
+          (ionInput)="onSearchInput()" placeholder="Search"> 
+    </ion-searchbar>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <!--
+  <div *ngIf="searching" class="spinner-container">
+        <ion-spinner></ion-spinner>
+  </div>
+  -->
+  <ion-list [virtualScroll]="filteredWildlife" >
+     <ion-item-sliding #item *virtualItem="let wildlife">
+
+     <ion-item  class="spinner-container" tappable  (click)="selectWildlife(wildlife.label_en, wildlife.binomial, wildlife.dbimage)">
+      <ion-thumbnail item-left>
+       <ion-img [src]="wildlife.dbimage"></ion-img>
+      </ion-thumbnail>
+       <h2>{{wildlife.label_en}}</h2>
+       <h3>Binomial: {{wildlife.binomial}}</h3>
+     </ion-item>
+     
+     <ion-item-options side="left">
+           
+     <button ion-button  (click)="viewWildlifeDetail(wildlife)" color="lighter" >
+      <ion-icon name="create"></ion-icon>
+      &nbsp; Details &nbsp;
+     </button>
+     <button ion-button (click)="editWildlife(wildlife)" color="lighter" >
+      <ion-icon name="create"></ion-icon>
+      &nbsp; Edit &nbsp;
+     </button>
+
+    </ion-item-options>
+
+    <ion-item-options side="right">
+      <button ion-button (click)="recordWildlife(wildlife)" color="lighter" >
+      <ion-icon name="aperture"></ion-icon>
+      Sighting
+     </button>
+    </ion-item-options>
+
+     </ion-item-sliding>
+   </ion-list>
+
+ <!--
+  <ion-list no-border>
+    <ion-item tappable *ngFor="let w of filteredWildlife" (click)="selectWildlife(w.label_en, w.binomial, w.imgProfile)" >
+      <ion-avatar item-left>
+        <img src="{{w.dbimage}}"/>
+      </ion-avatar>
+      <h2>{{w.label_en}}</h2>
+      <h3>Binomial: {{w.binomial}}</h3>
+    </ion-item>
+  </ion-list>
+  -->
+</ion-content>

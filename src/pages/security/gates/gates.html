@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-navbar color="dark" class="white-text">
+     <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title >Gate Control</ion-title>
+    <ion-buttons  right>
+        <button color="light" ion-button icon-only (click)="viewDestination()">
+            <ion-icon name="funnel"></ion-icon>
+        </button>
+    </ion-buttons> 
+  </ion-navbar>
+  
+</ion-header>
+
+
+<ion-content padding>
+  <!--
+ CUSTOM ICONS 
+ https://github.com/yannbf/ionicCustomIconsSample
+http://fontawesome.io/icons/
+https://thenounproject.com
+https://icomoon.io
+
+
+<sect
+ion #icons text-center>
+    <ion-col><ion-icon name="ai-bird" color="gold"></ion-icon></ion-col>
+    <ion-col><ion-icon name="ai-butterfly" color="gold"></ion-icon></ion-col>
+    <ion-col><ion-icon name="ai-eagle" color="gold"></ion-icon></ion-col>
+    <ion-col><ion-icon name="ai-elephant" color="gold"></ion-icon></ion-col>
+    <ion-col><ion-icon name="ai-frog"></ion-icon></ion-col>
+    <ion-col><ion-icon name="ai-frogtree"></ion-icon></ion-col>
+    <ion-col><ion-icon name="ai-fish"></ion-icon></ion-col>
+    <ion-col><ion-icon name="ai-lion" color="danger"></ion-icon></ion-col>
+    <ion-col><ion-icon name="ai-leaves"></ion-icon></ion-col>
+    <ion-col><ion-icon name="ai-giraffe" color="primary"></ion-icon></ion-col>
+    <ion-col><ion-icon name="ai-hippo"></ion-icon></ion-col>
+    <ion-col><ion-icon name="ai-hippohead" color="secondary"></ion-icon></ion-col>
+
+    <ion-col><ion-icon name="ai-car" color="gold"></ion-icon></ion-col>
+    <ion-col><ion-icon name="ai-bus2" color="gold"></ion-icon></ion-col>
+    <ion-col><ion-icon name="ai-van" color="gold"></ion-icon></ion-col>
+    <ion-col><ion-icon name="ai-pickup" color="gold"></ion-icon></ion-col>
+    <ion-col><ion-icon name="ai-truck"></ion-icon></ion-col>
+    <ion-col><ion-icon name="ai-tanker"></ion-icon></ion-col>
+    <ion-col><ion-icon name="ai-suv"></ion-icon></ion-col>
+    <ion-col><ion-icon name="ai-deliverytruck" color="danger"></ion-icon></ion-col>
+    <ion-col><ion-icon name="ai-bakkie2"></ion-icon></ion-col>
+  
+  </section>
+-->
+
+ <ion-list>
+  
+      <ion-item-sliding *ngFor="let vehicle of vehiclesSnapshot | async">
+       
+      <button ion-item>
+        <ion-thumbnail item-start>
+      <img src="../../assets/icon/cars/{{vehicle.vehicle_make_icon}}">
+       </ion-thumbnail> 
+      <ion-icon name="{{vehicle.vehicle_icon}}" item-end color="{{vehicle.color}}" style="zoom:2.5;" ></ion-icon>
+      <h2><b>{{vehicle.vehicle_reg}} </b></h2>
+      <h4>{{vehicle.no_persons}} person(s)</h4>
+      <h4>{{vehicle.destination}}</h4>
+      <h5><i>{{vehicle.entryTime | timeago }}</i> </h5>
+       </button>
+       
+       
+        <ion-item-options>
+          <button ion-button color="primary" icon-left (click)="updateVehicle(vehicle)" >
+            <ion-icon name="ios-brush"></ion-icon>
+            Update
+          </button>
+          <button ion-button color="danger" icon-left (click)="deleteVehicleConfirm(vehicle)" >
+            <ion-icon name="ios-trash"></ion-icon>
+            Delete
+          </button>
+        </ion-item-options>
+        
+      </ion-item-sliding>
+     
+    </ion-list>
+  
+  <ion-fab right bottom (click)="createVehicle()">
+        <button ion-fab color="green"><ion-icon name="md-add" ></ion-icon></button>
+    </ion-fab>
+
+</ion-content>

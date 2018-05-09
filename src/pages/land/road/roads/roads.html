@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar color="dark" class="white-text">
+     <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title >Road Map</ion-title>
+    <ion-buttons  right>
+        <button color="light" ion-button icon-only>
+            <ion-icon name="more"></ion-icon>
+        </button>
+    </ion-buttons> 
+  </ion-navbar>
+  
+</ion-header>
+
+
+<ion-content padding>
+
+   <ion-list>
+      <ion-item-sliding *ngFor="let road of roadsSnapshot | async">
+        <ion-item>
+          <h2>{{road.road_name}}</h2>
+          <h3>Polyline: {{road.en_polyline}}</h3>
+          <h3>Polyline Level: {{road.en_levels}}</h3>
+          <h3>Status: {{road.active}}</h3>
+          <h3>Key: {{road.id}}</h3>
+        </ion-item>
+        <ion-item-options>
+          <button ion-button color="primary" icon-left (click)="updateRoad(road)" >
+            <ion-icon name="ios-brush"></ion-icon>
+            Update
+          </button>
+          <button ion-button color="danger" icon-left (click)="deleteRoadConfirm(road)" >
+            <ion-icon name="ios-trash"></ion-icon>
+            Delete
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  
+  <ion-fab right bottom (click)="createRoad()">
+        <button ion-fab color="green"><ion-icon name="md-add" ></ion-icon></button>
+    </ion-fab>
+</ion-content>
+

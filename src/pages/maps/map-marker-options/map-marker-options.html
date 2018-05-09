@@ -1,0 +1,68 @@
+<ion-header>
+
+  <ion-navbar color="dark">
+    <ion-title>Marker Options</ion-title>
+    <ion-buttons end> 
+     <button ion-button   (click)="closeModal()">
+      <ion-icon name="close" color="light"></ion-icon>
+    </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+
+        <ion-item>
+          <ion-icon name="eye" item-start></ion-icon>
+          <ion-label>Latest Sightings</ion-label>
+         <ion-toggle color="danger" [(ngModel)]="showLatestSightings" (ionChange)="toggleLatestSightings()"></ion-toggle>
+        </ion-item> 
+
+        <ion-item>
+          <ion-icon name="ai-surprised" item-start></ion-icon>
+          <ion-label>Top Sightings</ion-label>
+        <ion-toggle color="danger" [(ngModel)]="showTopSightings" (ionChange)="toggleTopSightings()"></ion-toggle>
+        </ion-item>
+      
+        <ion-item>
+          <ion-icon name="ai-ranger" item-start></ion-icon>
+          <ion-label>My Sightings</ion-label>
+        <ion-toggle color="danger" [(ngModel)]="showMySightings" (ionChange)="toggleMySightings()"></ion-toggle>
+        </ion-item>         
+     
+        <ion-item>
+          <ion-icon name="ai-boundary" item-start></ion-icon>
+          <ion-label>Reserve Boundary</ion-label>
+        <ion-toggle color="danger" [(ngModel)]="showReserveMap" (ionChange)="maps.toggleReserveMap($event)"></ion-toggle>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="ai-road" item-start></ion-icon>
+          <ion-label>Roads</ion-label>
+        <ion-toggle color="danger" [(ngModel)]="showLodges" (ionChange)="toggleLodges()"></ion-toggle>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="ai-lodge" item-start></ion-icon>
+          <ion-label>Lodges</ion-label>
+        <ion-toggle color="danger" [(ngModel)]="showLodges" (ionChange)="toggleLodges()"></ion-toggle>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="ai-poi" item-start></ion-icon>
+          <ion-label>P.O.I</ion-label>
+        <ion-toggle color="danger" [(ngModel)]="showPOI" (ionChange)="togglePOI()"></ion-toggle>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="car" item-start></ion-icon>
+          <ion-label>Vehicles</ion-label>
+        <ion-toggle color="danger" [(ngModel)]="showVehicles" (ionChange)="toggleVehicles()"></ion-toggle>
+        </ion-item>
+</ion-list>
+
+</ion-content>

@@ -1,0 +1,49 @@
+<!--
+<ion-header no-padding>
+  <ion-navbar transparant class="white-text">
+     <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title >{{name}}</ion-title>
+    <ion-buttons  right>
+        <button color="light" ion-button icon-only>
+            <ion-icon name="more"></ion-icon>
+        </button>
+    </ion-buttons> 
+  </ion-navbar>  
+</ion-header>
+<ion-content [ngStyle]="{'background-image': 'url(' + backgroundImage +')'}">
+ -->
+
+<ion-header no-border>
+  <ion-navbar transparent color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu" color="dark"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+
+  <ion-content fullscreen="true" no-padding >
+  <ion-tabs  selectedIndex="{{selectedIndex}}" tabsPlacement='bottom'>
+    <ion-tab tabIcon="contact"   [root]="tab1"  [rootParams]="tabParams" tabTitle="Profile"></ion-tab>
+    <ion-tab tabIcon="compass"   [root]="tab2"  [rootParams]="tabParams" tabTitle="Location">></ion-tab>
+    <ion-tab tabIcon="analytics" [root]="tab3"  [rootParams]="tabParams" tabTitle="Sightings">></ion-tab>
+    <!--
+    <ion-tab tabIcon="settings"  [root]="tab4"  [rootParams]="tabParams" tabTitle="Preferences">></ion-tab>
+    -->
+ </ion-tabs>
+
+<!--  
+  <ion-fab left top (click)="closeUserModal()">
+     <button ion-button>
+      <ion-icon name="close"></ion-icon>
+    </button>
+  </ion-fab>
+  -->
+    
+  <ion-fab right top (click)="createSighting(this.user)">
+    <button ion-fab color="green"><ion-icon name="ios-eye" ></ion-icon></button>
+  </ion-fab>
+
+</ion-content>

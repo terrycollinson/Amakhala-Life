@@ -1,0 +1,83 @@
+<ion-header>
+
+  <ion-navbar color="dark">
+    <ion-title>Vehicle Entry</ion-title>
+    <ion-buttons end> 
+     <button ion-button   (click)="closeModal()">
+      <ion-icon name="close" color="light"></ion-icon>
+    </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <form [formGroup]="vehicleForm" (ngSubmit)="submitForm(vehicleForm.value)">
+     
+        <ion-list>
+          
+          <ion-item>
+             <ion-label floating>License Plate:</ion-label>
+            <ion-input type="text" value="" [formControl]="vehicleForm.controls['vehicle_reg']" [ngClass]="{'error-border':!vehicleForm.controls['vehicle_reg'].valid}"></ion-input>
+          </ion-item>
+
+          <ion-item tappable (click)="selectVehicleMake()">
+            <span>Make :</span>
+            <ion-icon name="{{this.vehicle_icon}}" item-right></ion-icon>
+             <span padding-left>{{this.vehicle_make}}</span>          
+          </ion-item>
+
+          <ion-item tappable (click)="selectVehicleType()">
+            <span>Type :</span>
+            <ion-icon name="{{this.vehicle_icon}}" item-right color="{{this.color}}"></ion-icon>
+             <span padding-left>{{this.vehicle_type}}</span>          
+          </ion-item>
+
+          <ion-item tappable (click)="selectColor()">
+            <span>Colour :</span>
+            <ion-icon name="color-palette" item-right color="{{this.color}}"></ion-icon>
+             <span padding-left>{{this.color}}</span>          
+          </ion-item>
+
+          <ion-item>
+            <span>No. of People :</span>
+              <ion-badge item-end color="secondary">{{no_persons}}</ion-badge>
+             <ion-range min="1" max="10" step="1" pin="true" snaps="true" color="gray" 
+                        (ionChange)="selectNumber($event)" [(ngModel)]="no_persons" [ngModelOptions]="{standalone: true}">
+             <ion-icon range-left small name="man" color="gray"></ion-icon>
+             <ion-icon range-right name="man"  color="gray"></ion-icon>
+             </ion-range>
+            </ion-item>
+         
+
+           <ion-item tappable (click)="selectDestination()">
+            <span>Destination :</span>
+            <ion-icon name="compass" item-right color="gray"></ion-icon>
+             <span padding-left>{{this.destination}}</span>          
+          </ion-item>
+         
+        </ion-list>
+
+        <div margin>
+            <div class="error-box" *ngIf="vehicleForm.controls['vehicle_reg'].hasError('required') && vehicleForm.controls['vehicle_reg'].touched">* Message License Plate is required!</div>
+            <div class="error-box" *ngIf="vehicleForm.controls['vehicle_reg'].hasError('minlength') && vehicleForm.controls['vehicle_reg'].touched">* Minimum message License Plate length is 5!</div>
+            <div class="error-box" *ngIf="vehicleForm.controls['vehicle_reg'].hasError('maxlength') && vehicleForm.controls['vehicle_reg'].touched">* Maximum message License Plate length is 10!</div>
+            <!--
+            <div class="error-box" *ngIf="vehicleForm.controls['vehicle_type'].hasError('required') && vehicleForm.controls['vehicle_type'].touched">* Vehicle Type is required!</div>
+
+            <div class="error-box" *ngIf="vehicleForm.controls['no_persons'].hasError('required') && vehicleForm.controls['no_persons'].touched">* No. of Persons is required!</div>
+            <div class="error-box" *ngIf="vehicleForm.controls['color'].hasError('required') && vehicleForm.controls['color'].touched">* Colour is required!</div>
+            <div class="error-box" *ngIf="vehicleForm.controls['destination'].hasError('required') && vehicleForm.controls['destination'].touched">* Destination is required!</div>
+            -->
+        </div>
+        
+        <ion-footer>
+          <div padding> <!-- [disabled]="!vehicleForm.valid" -->
+            <button type="submit" color="orange" [disabled]="!vehicleForm.valid" ion-button full >Submit</button>
+          </div>
+        </ion-footer>
+    </form>
+
+</ion-content>

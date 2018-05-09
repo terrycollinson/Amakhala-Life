@@ -1,0 +1,11 @@
+<ion-content no-padding>
+
+  <ion-grid>
+    <ion-row wrap color="gray">
+      <ion-col col-4 *ngFor="let image of imgGalleryArray , let i = index  " >
+        <img tappable class="expanded-image"  [src]="image.url"   (click)="selectClassis(i)" />      
+      </ion-col>
+    </ion-row>
+</ion-grid>
+
+</ion-content>
