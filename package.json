@@ -93,7 +93,15 @@
       "cordova-background-geolocation-lt": {
         "LICENSE": "YOUR_LICENSE_KEY"
       },
-      "mx.ferreyra.callnumber": {}
+      "mx.ferreyra.callnumber": {},
+      "cordova-plugin-ionic": {
+        "APP_ID": "4c290432",
+        "CHANNEL_NAME": "Production",
+        "UPDATE_METHOD": "background",
+        "WARN_DEBUG": "true",
+        "UPDATE_API": "https://api.ionicjs.com",
+        "MAX_STORE": "2"
+      }
     },
     "platforms": [
       "android",
